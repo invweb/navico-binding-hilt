@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Navico</string>
+    <string name="name_title">Имя:</string>
+    <string name="description_title">Описание:</string>
+    <string name="address_title">Адрес:</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="map_hint">Карта</string>
+    <string name="point">Точка</string>
+</resources>
