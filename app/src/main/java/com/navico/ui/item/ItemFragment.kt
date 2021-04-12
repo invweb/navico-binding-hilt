@@ -56,10 +56,7 @@ class ItemFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(ItemViewModel::class.java)
         val item  = requireArguments().get(Constants.ITEM) as Item
 
-        itemFragmentBinding.name.text = item.name
-        itemFragmentBinding.description.text = item.description
-        itemFragmentBinding.address.text = item.address
-
+        itemFragmentBinding.item = item
         Glide.with(this).load(item.photo).into(itemFragmentBinding.imageView)
 
         (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
