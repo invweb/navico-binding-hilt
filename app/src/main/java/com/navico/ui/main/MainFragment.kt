@@ -34,7 +34,5 @@ class MainFragment : Fragment() {
         mainFragmentBinding.mainList.layoutManager = LinearLayoutManager(activity)
         mainFragmentBinding.mainList.adapter = adapter
         viewModel.getAndShowPoints(adapter)
-
-        (activity as AppCompatActivity?)!!.supportActionBar!!.setTitle(R.string.app_name)
     }
 }
