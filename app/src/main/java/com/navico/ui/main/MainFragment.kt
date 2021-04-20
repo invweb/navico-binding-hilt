@@ -31,8 +31,9 @@ class MainFragment : Fragment() {
 
         val adapter = MainListAdapter()
         adapter.setActivity(requireActivity())
+
         mainFragmentBinding.mainList.layoutManager = LinearLayoutManager(activity)
         mainFragmentBinding.mainList.adapter = adapter
-        viewModel.getAndShowPoints(adapter)
+        context?.let { viewModel.getAndShowPoints(adapter, it) }
     }
 }
