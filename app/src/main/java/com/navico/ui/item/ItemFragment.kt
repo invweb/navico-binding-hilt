@@ -69,8 +69,6 @@ class ItemFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(ItemViewModel::class.java)
         val item  = requireArguments().get(Constants.ITEM) as Item
-
         itemFragmentBinding.item = item
-        Glide.with(this).load(item.photo).into(itemFragmentBinding.imageView)
     }
 }
