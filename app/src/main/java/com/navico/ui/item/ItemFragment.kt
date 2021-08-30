@@ -2,6 +2,7 @@ package com.navico.ui.item
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -50,6 +51,7 @@ class ItemFragment : Fragment() {
     ): View {
         itemFragmentBinding = ItemFragmentBinding.inflate(layoutInflater)
         activity?.setActionBar(itemFragmentBinding.toolbar)
+        itemFragmentBinding.toolbar.inflateMenu(R.menu.menu)
         activity?.actionBar?.setDisplayHomeAsUpEnabled(true)
         activity?.actionBar?.setDisplayShowHomeEnabled(true)
 
@@ -61,12 +63,13 @@ class ItemFragment : Fragment() {
             navController?.navigateUp()
         }
 
+        setHasOptionsMenu(true)
+
         return itemFragmentBinding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(ItemViewModel::class.java)
         val item  = requireArguments().get(Constants.ITEM) as Item
         itemFragmentBinding.item = item
