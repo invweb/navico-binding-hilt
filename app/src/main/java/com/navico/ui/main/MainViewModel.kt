@@ -8,18 +8,21 @@ import com.navico.R
 import com.navico.data.Item
 import com.navico.retrofit.MarisApiService
 import com.navico.ui.adapter.MainListAdapter
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class MainViewModel : ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor(val marisApiService: MarisApiService): ViewModel() {
+
     fun getAndShowPoints(adapter: MainListAdapter, context: Context) {
-        val marisApiService = MarisApiService.Factory.create()
 
         viewModelScope.launch(Dispatchers.Main) {
-            marisApiService.pois().enqueue(object : Callback<List<Item?>> {
+            marisApiService.getPois().enqueue(object : Callback<List<Item?>> {
                 override fun onResponse(
                     call: Call<List<Item?>?>,
                     response: Response<List<Item?>?>

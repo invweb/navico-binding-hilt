@@ -1,6 +1,7 @@
 package com.navico.retrofit
 
 import com.navico.data.Item
+import dagger.Provides
 import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -11,7 +12,7 @@ import retrofit2.http.GET
 interface MarisApiService {
 
     @GET("pois.json?name=vasilii")
-    fun pois(): Call<List<Item?>>
+    fun getPois(): Call<List<Item?>>
 
     class Factory {
             companion object {
